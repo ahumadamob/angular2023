@@ -1,2 +1,6 @@
+<h1>Home</h1>
+<!--
 <p>Hola <strong>{{nombre}}</strong></p>
 <input type="text" [(ngModel)]="nombre">
+-->
+<p *ngFor="let producto of productos">{{producto.title}}</p>
