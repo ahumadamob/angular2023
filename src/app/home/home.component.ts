@@ -38,6 +38,7 @@ export class HomeComponent {
   
   async init(){
     const response:any = await this.productosService.getAllPromise()
+    console.log(response.results)
     this.productos = response.results
   }
   
