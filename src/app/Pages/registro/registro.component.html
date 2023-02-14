@@ -1,0 +1,45 @@
+<p>registro works!</p>
+<form [formGroup]="registroForm" (ngSubmit)="registro()">
+    <div>
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre" [ngClass]="{textError:registroForm.get('nombre')?.errors && registroForm.get('nombre')?.dirty}">
+    </div>
+    <div *ngIf="registroForm.get('nombre')?.errors && registroForm.get('nombre')?.dirty">
+        <p *ngIf="registroForm.get('nombre')?.hasError('required')">Campo <strong>Nombre</strong> es obligatorio</p>
+    </div>
+
+    <div>
+        <label>Apellido</label>
+        <input type="text" formControlName="apellido" [ngClass]="{textError:registroForm.get('apellido')?.errors && registroForm.get('apellido')?.dirty}">
+    </div>
+    <div *ngIf="registroForm.get('apellido')?.errors && registroForm.get('apellido')?.dirty">
+        <p *ngIf="registroForm.get('apellido')?.hasError('required')">Campo <strong>Apellido</strong> es obligatorio</p>
+    </div> 
+    
+    <div>
+        <label>Teléfono</label>
+        <input type="number" formControlName="telefono">
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" [ngClass]="{textError:registroForm.get('email')?.errors && registroForm.get('email')?.dirty}">
+    </div>
+    <div *ngIf="registroForm.get('email')?.errors && registroForm.get('email')?.dirty">
+        <p *ngIf="registroForm.get('email')?.hasError('required')">Campo <strong>Email</strong> es obligatorio</p>
+    </div>     
+
+    <div>
+        <label>Password</label>
+        <input type="password" formControlName="password" [ngClass]="{
+            textError:registroForm.get('password')?.hasError('required') && registroForm.get('password')?.dirty,
+            textWarning:(registroForm.get('password')?.hasError('minlength') || registroForm.get('password')?.hasError('maxlength')) && registroForm.get('password')?.dirty            
+        }">
+    </div>
+    <div *ngIf="registroForm.get('password')?.errors && registroForm.get('password')?.dirty">
+        <p *ngIf="registroForm.get('password')?.hasError('required')">Campo <strong>Password</strong> es obligatorio</p>
+        <p *ngIf="registroForm.get('password')?.hasError('minlength')">Campo <strong>Password</strong> debe tener al menos 6 caracteres</p>
+        <p *ngIf="registroForm.get('password')?.hasError('maxlength')">Campo <strong>Password</strong> no debe superar los 10 caracteres</p>
+    </div>  
+
+</form>

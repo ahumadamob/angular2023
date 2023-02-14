@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './Pages/home/home.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
-import { RegistroComponent } from './registro/registro.component';
+import { RegistroComponent } from './Pages/registro/registro.component';
 import { LoginComponent } from './login/login.component';
-import { DetalleComponent } from './detalle/detalle.component';
+import { DetalleComponent } from './Pages/detalle/detalle.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { DetalleComponent } from './detalle/detalle.component';
     CatalogoComponent,
     RegistroComponent,
     LoginComponent,
-    DetalleComponent
+    DetalleComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
